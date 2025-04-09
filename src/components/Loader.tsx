@@ -16,7 +16,7 @@ export default function Loader({ size = "md", className }: LoaderProps) {
     <div className="flex justify-center items-center">
       <div
         className={twMerge(
-          `${sizeClasses[size]} border-white border-t-black border-l-black rounded-full animate-spin`,
+          `${sizeClasses[size]} border-white border-t-rose border-l-rose rounded-full animate-spin`,
           className
         )}
       ></div>

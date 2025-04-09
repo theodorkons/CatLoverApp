@@ -19,7 +19,7 @@ export default function Button({
     <button
       onClick={onClick}
       className={twMerge(
-        "bg-black text-white p-4 cursor-pointer relative inline-flex items-center justify-center",
+        "bg-rose text-white disabled:opacity-60 p-4 cursor-pointer relative inline-flex items-center justify-center rounded-sm",
         className
       )}
       disabled={loading}

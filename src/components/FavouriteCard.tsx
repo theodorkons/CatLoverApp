@@ -1,26 +1,16 @@
-import { useState } from "react";
-import { createFavourite, deleteFavourite } from "../api";
-import HeartIcon from "./HeartIcon";
+import HeartIcon from "./icons/HeartIcon";
+import { useFavourite } from "../hooks/useFavourites";
+import CatImage from "./CatImage";
 
 interface Props {
-  id: string;
+  id: number;
   imageId: string;
   imageUrl: string;
 }
 
 export default function FavouriteCard({ id, imageId, imageUrl }: Props) {
-  const [isFavorited, setIsFavorited] = useState(true);
-  console.log("id", id, imageId);
-  //resuse this in breedcard
-  const handleHeartClick = () => {
-    if (isFavorited) {
-      deleteFavourite(id);
-      setIsFavorited(false);
-    } else {
-      createFavourite(imageId);
-      setIsFavorited(true);
-    }
-  };
+  const { isFavorited, handleHeartClick } = useFavourite(imageId, id);
+
   return (
     <div key={id} className="relative">
       <div
@@ -32,7 +22,7 @@ export default function FavouriteCard({ id, imageId, imageUrl }: Props) {
           stroke={isFavorited ? "red" : "white"}
         />
       </div>
-      <img src={imageUrl} alt={`Cat image`} className="rounded-lg shadow-md" />
+      <CatImage url={imageUrl} alt={"Cat image"} />
     </div>
   );
 }

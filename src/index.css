@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme {
+  --color-rose: #cf6785;
+  --color-cream: #fdf6f0;
+}
+
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -11,4 +16,9 @@
 
 .animate-spin {
   animation: spin 1s linear infinite;
+}
+
+main {
+  padding-inline: 24px;
+  margin-bottom: 30px;
 }
