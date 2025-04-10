@@ -10,6 +10,7 @@ import Grid from "./Grid";
 import FlipModal from "./FlipModal";
 import BreedCardFront from "./BreedCardFront";
 import BreedCardBack from "./BreedCardBack";
+import { createPortal } from "react-dom";
 
 type Props = {
   breedId: string;
@@ -62,25 +63,24 @@ export default function BreedImages({ breedId }: Props) {
         );
       })}
 
-      {isDetailsModalOpen && (
-        <FlipModal
-          isOpen={isDetailsModalOpen}
-          flipDisabled={!selectedCat?.breeds || selectedCat.breeds.length === 0}
-          front={
-            <BreedCardFront
-              url={selectedCat?.url as string}
-              id={selectedCat?.id as string}
-              setIsOpen={setIsDetailsModalOpen} //find better way to close the modal
-            />
-          }
-          back={
-            <BreedCardBack
-              breeds={selectedCat?.breeds ?? []}
-              setIsOpen={setIsDetailsModalOpen}
-            />
-          }
-        />
-      )}
+      {isDetailsModalOpen &&
+        createPortal(
+          <FlipModal
+            isOpen={isDetailsModalOpen}
+            setIsOpen={setIsDetailsModalOpen}
+            flipDisabled={
+              !selectedCat?.breeds || selectedCat.breeds.length === 0
+            }
+            front={
+              <BreedCardFront
+                url={selectedCat?.url as string}
+                id={selectedCat?.id as string}
+              />
+            }
+            back={<BreedCardBack breeds={selectedCat?.breeds ?? []} />}
+          />,
+          document.body
+        )}
     </Grid>
   );
 }

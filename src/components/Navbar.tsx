@@ -39,7 +39,7 @@ export default function NavBar() {
         {/* Close icon */}
         <button
           onClick={() => setMenuOpen(false)}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 text-rose text-3xl font-bold transition-opacity duration-300"
+          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-rose text-3xl font-bold transition-opacity duration-300"
         >
           <ExitIcon fill="#cf6785" />
         </button>

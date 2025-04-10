@@ -60,8 +60,8 @@ export default function Breeds() {
           isOpen={isBreedImagesOpen}
           setIsOpen={setIsBreedImagesOpen}
           onClose={() => removeURLParams()}
-          exitIconColor="black"
-          className="w-full h-full pt-6"
+          exitIconColor="#cf6785"
+          className="w-[97%] h-[97%] pt-6 overflow-y-scroll"
         >
           <BreedImages breedId={breedId} />
         </Modal>

@@ -15,7 +15,7 @@ export default function NavLinkItem({
       to={to}
       className={`${
         isActive ? "font-bold" : "font-normal"
-      } transition-colors duration-200 hover:scale-110 text-lg`}
+      } text-rose transition-colors duration-200 hover:scale-110 text-lg`}
     >
       {label}
     </Link>
