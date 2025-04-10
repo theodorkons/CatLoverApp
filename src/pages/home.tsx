@@ -77,21 +77,20 @@ function Home() {
   return (
     <main className="flex flex-col justify-center mb-7">
       <Grid>
-        {catImages &&
-          catImages.map((entry: CatInfo) => {
-            return (
-              <div
-                key={entry.id}
-                onClick={() => {
-                  setIsDetailsModalOpen(true);
-                  setSelectedCat(entry);
-                  pushURLParams({ id: entry.id as string });
-                }}
-              >
-                <CatImage key={entry.id} url={entry.url} alt="image of a cat" />
-              </div>
-            );
-          })}
+        {catImages.map((entry: CatInfo) => {
+          return (
+            <div
+              key={entry.id}
+              onClick={() => {
+                setIsDetailsModalOpen(true);
+                setSelectedCat(entry);
+                pushURLParams({ id: entry.id as string });
+              }}
+            >
+              <CatImage key={entry.id} url={entry.url} alt="image of a cat" />
+            </div>
+          );
+        })}
 
         {isDetailsModalOpen && (
           <FlipModal

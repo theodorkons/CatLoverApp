@@ -38,21 +38,20 @@ export default function Breeds() {
   return (
     <main>
       <Grid>
-        {catBreeds &&
-          catBreeds.map((breed: CatBreedWithImage) => {
-            return (
-              <div
-                key={breed.id}
-                onClick={() => {
-                  setBreedId(breed.id);
-                  setIsBreedImagesOpen(true);
-                  pushURLParams({ breedId: breed.id });
-                }}
-              >
-                <Breed url={breed?.image?.url ?? ""} name={breed.name} />
-              </div>
-            );
-          })}
+        {catBreeds.map((breed: CatBreedWithImage) => {
+          return (
+            <div
+              key={breed.id}
+              onClick={() => {
+                setBreedId(breed.id);
+                setIsBreedImagesOpen(true);
+                pushURLParams({ breedId: breed.id });
+              }}
+            >
+              <Breed url={breed?.image?.url ?? ""} name={breed.name} />
+            </div>
+          );
+        })}
       </Grid>
 
       {breedId && (

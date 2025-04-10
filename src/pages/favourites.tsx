@@ -6,9 +6,9 @@ import FavouriteCard from "../components/FavouriteCard";
 import Button from "../components/Button";
 import Grid from "../components/Grid";
 
-export default function Favourites() {
-  const LIMIT = 10;
+const LIMIT = 10;
 
+export default function Favourites() {
   const {
     fetchNextPage,
     hasNextPage,
@@ -48,7 +48,7 @@ export default function Favourites() {
               key={fav.id}
               id={fav.id}
               imageId={fav.image_id}
-              imageUrl={fav?.image?.url}
+              imageUrl={fav.image.url}
             />
           );
         })}

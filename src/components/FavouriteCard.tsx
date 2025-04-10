@@ -16,7 +16,7 @@ export default function FavouriteCard({ id, imageId, imageUrl }: Props) {
       <div className="absolute cursor-pointer top-0 left-0 w-full h-16 bg-gradient-to-b from-black/30 to-transparent z-10" />
       <div
         onClick={() => handleHeartClick()}
-        className="absolute top-2 right-4 w-6 h-6 hover:scale-120 z-20"
+        className="absolute top-2 left-4 w-6 h-6 hover:scale-120 z-20"
       >
         <HeartIcon
           fill={isFavorited ? "red" : "white"}

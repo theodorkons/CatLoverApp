@@ -18,10 +18,10 @@ export default function BreedCardFront({ url = imagePlaceHolder, id }: Props) {
       <div className="absolute cursor-pointer top-0 left-0 w-full h-16 bg-gradient-to-b from-black/60 to-transparent z-10" />
       <div
         onClick={(e) => {
-          e.stopPropagation(); // prevent flipping when clicking heart
+          e.stopPropagation();
           handleHeartClick();
         }}
-        className="absolute top-4 right-6 w-6 h-6 cursor-pointer z-20 hover:scale-120"
+        className="absolute top-4 left-6 w-6 h-6 cursor-pointer z-20 hover:scale-120"
       >
         <HeartIcon
           fill={isFavorited ? "red" : "white"}
