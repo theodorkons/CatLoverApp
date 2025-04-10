@@ -1,28 +1,18 @@
 import { CatBreed } from "../types";
 import { Link } from "react-router";
-import ExitIcon from "./icons/ExitIcon";
 
 interface Props {
   breeds: CatBreed[];
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function BreedCardBack({ breeds, setIsOpen }: Props) {
+export default function BreedCardBack({ breeds }: Props) {
   return (
-    <div className="h-full overflow-y-auto p-4 space-y-6 pt-16">
-      <div
-        className="cursor-pointer absolute left-6 top-3.5 z-50"
-        onClick={() => {
-          setIsOpen(false);
-        }}
-      >
-        <ExitIcon fill={"black"} />
-      </div>
+    <div className="h-full overflow-y-auto p-4 space-y-6 pt-16 no-scrollbar">
       {breeds?.map((breed, index) => (
         <div key={index} className="[&>*]:py-2 [&>*]:font-semibold">
           <Link
             to={`/breeds?breedId=${breed.id}`}
-            className="text-4xl mb-4 font-bold block text-gray-900 underline"
+            className="text-4xl mb-4 font-bold block text-rose underline"
           >
             {breed.name}
           </Link>

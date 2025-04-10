@@ -95,6 +95,7 @@ function Home() {
         {isDetailsModalOpen && (
           <FlipModal
             isOpen={isDetailsModalOpen}
+            setIsOpen={setIsDetailsModalOpen}
             flipDisabled={
               !selectedCat?.breeds || selectedCat.breeds.length === 0
             }
@@ -102,15 +103,9 @@ function Home() {
               <BreedCardFront
                 url={selectedCat?.url as string}
                 id={selectedCat?.id as string}
-                setIsOpen={setIsDetailsModalOpen} //find better way to close the modal
               />
             }
-            back={
-              <BreedCardBack
-                breeds={selectedCat?.breeds ?? []}
-                setIsOpen={setIsDetailsModalOpen}
-              />
-            }
+            back={<BreedCardBack breeds={selectedCat?.breeds ?? []} />}
           />
         )}
       </Grid>

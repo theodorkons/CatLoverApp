@@ -1,6 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
 
-////////////////////////////////// check optionals
 type Props = {
   error?: unknown;
   message?: string;

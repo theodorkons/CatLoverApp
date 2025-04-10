@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { twMerge } from "tailwind-merge";
+import ExitIcon from "./icons/ExitIcon";
 
 interface FlipModalProps {
   isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   className?: string;
   front: React.ReactNode;
   back: React.ReactNode;
@@ -12,6 +14,7 @@ interface FlipModalProps {
 
 export default function FlipModal({
   isOpen,
+  setIsOpen,
   className,
   front,
   back,
@@ -19,16 +22,25 @@ export default function FlipModal({
 }: FlipModalProps) {
   const [isFlipped, setIsFlipped] = useState(false);
 
+  const exitIcon = (
+    <div
+      className="absolute top-4 hover:scale-120 left-4 z-50 cursor-pointer"
+      onClick={() => setIsOpen(false)}
+    >
+      <ExitIcon fill="#cf6785" />
+    </div>
+  );
+
   if (!isOpen) return null;
 
   return (
     <>
-      <div className="fixed inset-0 backdrop-blur-sm bg-black/20 z-40" />
+      <div className="fixed inset-0 backdrop-blur-sm bg-black/20 z-50" />
       <div
         className={twMerge(
           "z-50 fixed bg-transparent top-1/2 left-1/2",
           "transform -translate-x-1/2 -translate-y-1/2",
-          "w-[30rem] h-[40rem] shadow-lg rounded-lg",
+          "max-w-[30rem] max-h-[40rem] w-[97%] h-full shadow-lg rounded-lg no-scrollbar",
           className
         )}
         style={{ perspective: 1000 }}
@@ -53,7 +65,12 @@ export default function FlipModal({
               }
             }}
           >
-            {!isFlipped && <>{front}</>}
+            {!isFlipped && (
+              <>
+                {exitIcon}
+                {front}
+              </>
+            )}
           </div>
 
           {/* BACK SIDE */}
@@ -64,7 +81,12 @@ export default function FlipModal({
               e.stopPropagation();
             }}
           >
-            {isFlipped && <>{back}</>}
+            {isFlipped && (
+              <>
+                {exitIcon}
+                {back}
+              </>
+            )}
           </div>
         </motion.div>
       </div>
