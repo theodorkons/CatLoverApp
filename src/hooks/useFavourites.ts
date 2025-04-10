@@ -6,6 +6,7 @@ import useErrorPopup from "./useErrorPopup";
 export function useFavourite(imageId: string, id?: number) {
   const [isFavorited, setIsFavorited] = useState(!!id);
   const [favouriteId, setFavouriteId] = useState<null | number>(id ?? null);
+  const [loading, setLoading] = useState(false);
 
   const { showError, errorMessage, triggerError } = useErrorPopup({
     duration: 5000,
@@ -32,6 +33,9 @@ export function useFavourite(imageId: string, id?: number) {
   }, [data, id]);
 
   const handleHeartClick = async () => {
+    if (loading) return;
+    setLoading(true);
+
     try {
       if (isFavorited && favouriteId) {
         await deleteFavourite(favouriteId);
@@ -39,12 +43,13 @@ export function useFavourite(imageId: string, id?: number) {
         setFavouriteId(null);
       } else {
         const res = await createFavourite(imageId);
-        console.log(res);
         setIsFavorited(true);
         setFavouriteId(res.id);
       }
     } catch (err) {
       triggerError("Failed to update favourites");
+    } finally {
+      setLoading(false);
     }
   };
 

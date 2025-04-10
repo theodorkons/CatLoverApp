@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { twMerge } from "tailwind-merge";
 import ExitIcon from "./icons/ExitIcon";
 import { useLockScroll } from "../hooks/useLockScroll";
