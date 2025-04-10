@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import { twMerge } from "tailwind-merge";
 import ExitIcon from "./icons/ExitIcon";
+import { useLockScroll } from "../hooks/useLockScroll";
 
 interface Props {
   children: React.ReactNode;
@@ -18,6 +20,8 @@ export default function Modal({
   exitIconColor = "white",
   className,
 }: Props) {
+  useLockScroll(isOpen);
+
   return (
     <>
       {isOpen && (
@@ -30,7 +34,7 @@ export default function Modal({
             )}
           >
             <div
-              className="cursor-pointer absolute left-6 top-3.5 z-40"
+              className="cursor-pointer absolute right-6 top-3.5 z-40"
               onClick={() => {
                 setIsOpen(false);
                 if (onClose) {
@@ -40,7 +44,6 @@ export default function Modal({
             >
               <ExitIcon fill={exitIconColor} />
             </div>
-
             {children}
           </div>
         </>

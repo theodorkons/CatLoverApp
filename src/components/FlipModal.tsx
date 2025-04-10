@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { twMerge } from "tailwind-merge";
 import ExitIcon from "./icons/ExitIcon";
+import { useLockScroll } from "../hooks/useLockScroll";
 
 interface FlipModalProps {
   isOpen: boolean;
@@ -21,10 +22,11 @@ export default function FlipModal({
   flipDisabled = false,
 }: FlipModalProps) {
   const [isFlipped, setIsFlipped] = useState(false);
+  useLockScroll(isOpen);
 
   const exitIcon = (
     <div
-      className="absolute top-4 hover:scale-120 left-4 z-50 cursor-pointer"
+      className="absolute top-3 hover:scale-120 right-4 z-50 cursor-pointer"
       onClick={() => setIsOpen(false)}
     >
       <ExitIcon fill="#cf6785" />
