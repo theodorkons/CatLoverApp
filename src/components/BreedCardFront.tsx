@@ -28,7 +28,11 @@ export default function BreedCardFront({ url = imagePlaceHolder, id }: Props) {
           stroke={isFavorited ? "red" : "white"}
         />
       </div>
-      <CatImage url={url} alt="image of cat" className="h-full" />
+      <CatImage
+        url={url}
+        alt="image of cat"
+        className="h-full hover:scale-100"
+      />
 
       {showError && errorMessage && <PopupError error={errorMessage} />}
     </>

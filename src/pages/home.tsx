@@ -32,6 +32,7 @@ function Home() {
   } = useQuery({
     queryKey: ["images"],
     queryFn: ({ signal }) => fetchCatPhotos(LIMIT, signal),
+    refetchOnWindowFocus: false,
   });
 
   const { data: catPhotoData, error: catPhotoError } = useQuery({
