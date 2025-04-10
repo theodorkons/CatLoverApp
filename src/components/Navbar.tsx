@@ -8,7 +8,14 @@ export default function NavBar() {
   return (
     <div className="h-20 bg-cream w-full flex items-center justify-between px-5 mb-6 relative overflow-hidden">
       {!menuOpen && (
-        <p className="text-rose font-semibold text-4xl">Catlover</p>
+        <p className="text-rose font-semibold text-4xl">
+          <img
+            src="/catlover-logo.png"
+            alt="catlover log"
+            width="160"
+            height="80"
+          />
+        </p>
       )}
 
       {/* Desktop Nav */}
