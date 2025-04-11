@@ -112,7 +112,10 @@ VITE_CAT_API_BASE_URL="https://api.thecatapi.com/v1"
 
 ## Improvements
 
-    - Write unit tests and integration tests to validate components, API calls, and overall application flow.
+   - Write unit tests and e2e tests to validate components, API calls, and overall application flow.
+   -  Enhance the visual feedback for UI elements by clearly indicating loading and disabled states—such as the heart icon in BreedCardFront, to provide users with intuitive status cues.
+   - Improve the design of the cat image modal to enhance image presentation.
+   - Upgrade the design of the cat image modal to better showcase the image, while providing a clear visual hint such as a hover prompt that clicking flips the card to expose additional cat details.
 
 ## Deployment
 
